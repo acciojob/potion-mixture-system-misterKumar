@@ -19,6 +19,43 @@ public class PotionMixerSystem {
 
         public void calculatePower() {
         	//your code goes here
+            // Base power levels of main ingredients
+            double mainBasePower = 0;
+            switch (mainIngredient.toLowerCase()) {
+                case "rose":
+                    mainBasePower = 100;
+                    break;
+                case "lavender":
+                    mainBasePower = 80;
+                    break;
+                case "mint":
+                    mainBasePower = 120;
+                    break;
+                default:
+                    System.out.println("Unknown main ingredient. Setting base power to 0.");
+            }
+
+            // Percentage power boost of additive ingredients
+            double additivePowerBoost = 0;
+            switch (additiveIngredient.toLowerCase()) {
+                case "honey":
+                    additivePowerBoost = 0.1; // 10% boost
+                    break;
+                case "ginger":
+                    additivePowerBoost = 0.15; // 15% boost
+                    break;
+                case "lemon":
+                    additivePowerBoost = 0.12; // 12% boost
+                    break;
+                default:
+                    System.out.println("Unknown additive ingredient. No power boost applied.");
+            }
+
+            // Calculate potion power
+            double calculatedPower = mainBasePower + (mainBasePower * additivePowerBoost);
+
+            // Ensure the power remains between 1 and 500 (inclusive)
+            this.power = Math.max(1, Math.min(calculatedPower, 500));
         }
 
         public String getPotionName() {
