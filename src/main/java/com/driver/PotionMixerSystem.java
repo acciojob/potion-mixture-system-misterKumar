@@ -19,6 +19,33 @@ public class PotionMixerSystem {
 
         public void calculatePower() {
         	//your code goes here
+            /*
+             double basePower = 0.0;
+
+            if ("Rose".equals(mainIngredient)) {
+                basePower = 100.0;
+            } else if ("Lavender".equals(mainIngredient)) {
+                basePower = 80.0;
+            } else if ("Mint".equals(mainIngredient)) {
+                basePower = 60.0;
+            }
+
+            double percentageBoost = 0.0;
+
+            if ("Honey".equals(additiveIngredient)) {
+                percentageBoost = 0.20;
+            } else if ("Ginger".equals(additiveIngredient)) {
+                percentageBoost = 0.10;
+            } else if ("Lemon".equals(additiveIngredient)) {
+                percentageBoost = 0.05;
+            }
+
+            this.power = basePower + (basePower * percentageBoost);
+
+            if (this.power > 500) {
+                this.power = 500; // Caps the power to a maximum of 500
+            }
+            */
             // Base power levels of main ingredients
             double mainBasePower = 0;
             switch (mainIngredient.toLowerCase()) {
@@ -29,7 +56,7 @@ public class PotionMixerSystem {
                     mainBasePower = 80;
                     break;
                 case "mint":
-                    mainBasePower = 120;
+                    mainBasePower = 60;
                     break;
                 default:
                     System.out.println("Unknown main ingredient. Setting base power to 0.");
@@ -39,13 +66,13 @@ public class PotionMixerSystem {
             double additivePowerBoost = 0;
             switch (additiveIngredient.toLowerCase()) {
                 case "honey":
-                    additivePowerBoost = 0.1; // 10% boost
+                    additivePowerBoost = 0.20; // 00% boost
                     break;
                 case "ginger":
-                    additivePowerBoost = 0.15; // 15% boost
+                    additivePowerBoost = 0.10; // 10% boost
                     break;
                 case "lemon":
-                    additivePowerBoost = 0.12; // 12% boost
+                    additivePowerBoost = 0.05; // 5% boost
                     break;
                 default:
                     System.out.println("Unknown additive ingredient. No power boost applied.");
